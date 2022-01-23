@@ -25,7 +25,7 @@ public class KolokwiumFibonacci  extends JFrame implements ActionListener {
 
 	private void initUI() {
 		
-		pole_gorne = new JTextField("Podaj numer wyrazu ci¹gu.");
+		pole_gorne = new JTextField("Podaj numer wyrazu ciÂ¹gu.");
 		pole_dolne = new JTextField("Wynik");
 		
 		oblicz = new JButton("Oblicz!");
@@ -40,7 +40,7 @@ public class KolokwiumFibonacci  extends JFrame implements ActionListener {
 		this.setLocationRelativeTo(null);
 		this.setSize(500, 500);
 		this.setVisible(true);
-		this.setTitle("Ci¹g Fibonacciego");
+		this.setTitle("CiÂ¹g Fibonacciego");
 	}
 
 	@Override
@@ -53,29 +53,22 @@ public class KolokwiumFibonacci  extends JFrame implements ActionListener {
 
 	private void oblicz() {
 		
-		try {
+	try {
 			
 		podajWartosc = pole_gorne.getText();
-		
-		} catch(NumberFormatException e1) {
-			
-			pole_dolne.setText("Nie poda³eœ numeru wyrazu ci¹gu!");
-			
-		}
-		
 		liczba = Integer.parseInt(podajWartosc);
 		
-		if(liczba <= 0) {
-			
-			pole_dolne.setText("Podaj dodatni¹ wartoœæ!");
-			
+		if(liczba <= 0){
+			pole_dolne.setText("Podaj dodatni numer wyrazu!");
+		} else if(podajWartosc.trim().equals("")) {
+			pole_dolne.setText("Brak numeru wyrazu!");
+		}else {
+			pole_dolne.setText(String.valueOf(fibo(liczba)));
 		}
 		
-		if (pole_gorne.getText().isBlank()) {
-			pole_dolne.setText("Proszê podaæ wartoœæ!");
+	} catch (NumberFormatException e1) {
+		pole_dolne.setText("NieprawidÅ‚owe dane!");
 		}
-		
-		pole_dolne.setText(String.valueOf(fibo(liczba)));
 	
 	}
 
